@@ -1,14 +1,14 @@
 local FluentMain = {}
 
--- هنا نستدعي الملفات التي صنعناها
-local InterfaceManager = require(script.Parent.InterfaceManager)
-local SaveManager = require(script.Parent.SaveManager)
+-- هنا نقوم بعملية "الربط"
+FluentMain.Interface = require(script.Parent.InterfaceManager)
+FluentMain.Save = require(script.Parent.SaveManager)
+FluentMain.Library = require(script.Parent.Library)
 
-function FluentMain:Start()
-    print("Starting Voidware Hub...")
-    SaveManager:Load()
-    InterfaceManager:Init()
-    print("All Modules Loaded!")
+function FluentMain:Init()
+    print("Voidware Hub Initialized!")
+    FluentMain.Save:Load()
+    FluentMain.Interface:Init()
 end
 
 return FluentMain
